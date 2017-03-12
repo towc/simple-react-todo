@@ -1,0 +1,92 @@
+body {
+  background-color: #aaa;
+}
+.todo-app {
+  position: absolute;
+  width: 600px;
+  left: calc( 50% - 300px );
+  top: 100px;
+  background-color: #999;
+  box-shadow: 0 0 2px #999;
+}
+.todo-header {
+  width: calc( 100% - 60px );
+  text-align: center;
+  font: 50px Helvetica;
+  color: #333;
+  background-color: #ccc;
+  padding: 30px;
+  box-shadow: 0 0 2px #ccc;
+}
+.todo-header-name {
+  font: inherit;
+}
+.todo-list {
+  display: flex;
+  display: -webkit-flex;
+  flex-direction: column;
+  -webkit-flex-direction: column;
+}
+.todo-add {
+  margin-left: 530px;
+  text-align: center;
+  box-shadow: 0 0 5px #ddd;
+  background-color: #ddd;
+  width: 60px;
+  font: 50px Helvetica;
+  color: #888;
+  user-select: none;
+  -moz-user-select: none;
+  cursor: pointer;
+}
+.todo-item {
+  padding: 10px 5px 10px 20px;
+  background-color: #ddd;
+  margin-top: 0px;
+  display: flex;
+  display: -webkit-flex;
+}
+.todo-item-name {
+  font: 30px Helvetica;
+}
+.todo-item-desc {
+  font: 15px Helvetica;
+  color: #333;
+}
+.todo-item-tick {
+  width: 20px;
+  height: 20px;
+  border: 1px solid #555;
+  margin-left: 32px;
+  margin-top: 10px;
+  transition: background-color .4s;
+  -webkit-transition: background-color .4s;
+}
+.todo-item-tick:hover {
+  cursor: pointer;
+  background-color: #addbad;
+}
+.todo-item-tick--ticked, .todo-item-tick--ticked:hover {
+  background-color: #383;
+  transition: background-color 1s;
+  -webkit-transition: background-color 1s;
+}
+.todo-item--ticked {
+  transition: opacity 1s, margin 1s;
+  -webkit-transition: opacity 1s, margin 1s;
+  opacity: 0;
+  margin-top: -56px;
+}
+
+.editable-input {
+  background-color: transparent;
+  border: none;
+  /*font: inherit;*/
+  text-align: inherit;
+}
+.editable-input:focus {
+  outline: none;
+}
+.editable-input.editing {
+  text-decoration: underline; 
+}

@@ -1,0 +1,33 @@
+{
+  "name": "simple-react-todo",
+  "version": "0.0.1",
+  "description": "sharpening react",
+  "main": "lib/index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "rm -rf lib/; mkdir lib; cp -rf src/* lib/; webpack",
+    "start": "node lib/server/index.js",
+    "direct-update-css": "cp src/client/index.css lib/client/index.css"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@github.com/towc/simple-react-todo.git"
+  },
+  "author": "towc",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/towc/simple-react-todo/issues"
+  },
+  "homepage": "https://github.com/towc/simple-react-todo#readme",
+  "dependencies": {
+    "babel": "^6.23.0",
+    "babel-cli": "^6.23.0",
+    "babel-loader": "^6.4.0",
+    "babel-preset-es2015": "^6.22.0",
+    "babel-preset-react": "^6.23.0",
+    "express": "^4.15.2",
+    "react": "^15.4.2",
+    "react-dom": "^15.4.2",
+    "webpack": "^2.2.1"
+  }
+}
