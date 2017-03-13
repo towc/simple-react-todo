@@ -31,6 +31,12 @@ export default class Editable extends React.Component {
     if( this.props.changeFn )
       this.props.changeFn( this.refs.el.value );
   }
+  setValue( val ) {
+    this.refs.el.value = val;
+  }
+  getValue() {
+    return this.refs.el.value
+  }
   focus() {
     this.refs.el.focus();
   }

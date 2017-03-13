@@ -9,6 +9,7 @@ export default class TodoList extends React.Component {
     this.state = {
       app: props.app
     }
+
   }
   render() {
     return (
@@ -19,7 +20,7 @@ export default class TodoList extends React.Component {
     )
   }
   addTodo() {
-    this.state.app.addTodo( 'New Todo', 'description' );
+    this.state.app.addTodo();
 
     this.setState({ app: this.state.app });
 
@@ -29,7 +30,6 @@ export default class TodoList extends React.Component {
   }
   removeTodo( todo ) {
     window.setTimeout( (function( todo ){
-      console.log( 'todo-delay for:  ' + todo );
       this.state.app.tickTodo( todo )
         
       this.setState({ app: this.state.app });
