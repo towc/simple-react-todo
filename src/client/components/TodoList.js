@@ -3,36 +3,23 @@ import React from 'react'
 import TodoItem from './TodoItem'
 
 export default class TodoList extends React.Component {
-  constructor( props ) {
-    super( props );
-
-    this.state = {
-      app: props.app
-    }
-
-  }
   render() {
     return (
       <div className="todo-list">
-        {this.state.app.todos.map( (todo,i) => <TodoItem todo={todo} removeTodoFn={this.removeTodo.bind(this, todo)} key={todo.id} app={this.state.app} ref={i === this.state.app.todos.length - 1 ? "last" : ""} /> )}
-        <div className="todo-add" onClick={this.addTodo.bind(this)}>+</div>
+        {this.props.appTodos.map( (todo,i) =>
+          <TodoItem
+            todoName={todo.name}
+            todoDesc={todo.desc}
+            removeTodoFn={this.props.getAppRemoveTodoFn( todo )}
+            todoChangeNameFn={this.props.getTodoChangeNameFn( todo )}
+            todoChangeDescFn={this.props.getTodoChangeDescFn( todo )}
+            key={todo.id}
+            ref={(el) => { if( i === this.props.appTodos.length - 1 ) this.last = el}} /> )}
+        <div className="todo-add" onClick={this.props.appAddTodoFn}>+</div>
       </div>
     )
   }
-  addTodo() {
-    this.state.app.addTodo();
-
-    this.setState({ app: this.state.app });
-
-    window.setTimeout( (function(){
-      this.refs.last.focus()
-    }).bind(this), 10 );
-  }
-  removeTodo( todo ) {
-    window.setTimeout( (function( todo ){
-      this.state.app.tickTodo( todo )
-        
-      this.setState({ app: this.state.app });
-    }).bind(this, todo), this.state.app.removeDelay );
+  focus() {
+    this.last.focus();
   }
 }

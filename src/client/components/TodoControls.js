@@ -28,7 +28,7 @@ export default class TodoControls extends React.Component {
   }
   load() {
     this.props.app.fromJson( this.state.controlString );
-    window.setTimeout( (function(){this.props.reloadStateFn()}).bind(this), 10 );
+    //window.setTimeout( (function(){this.props.reloadStateFn()}).bind(this), 10 );
   }
   save() {
     this.setState({ controlString: this.props.app.toJson() });
